@@ -4,11 +4,11 @@ import { Menu, X, CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const nav = [
-  { to: "/", label: "خانه", hash: undefined },
-  { to: "/", label: "خدمات", hash: "services" },
-  { to: "/", label: "نمونه‌کار", hash: "gallery" },
-  { to: "/", label: "سوالات", hash: "faq" },
-  { to: "/", label: "تماس", hash: "contact" },
+  { label: "خانه", hash: "top" },
+  { label: "خدمات", hash: "services" },
+  { label: "نمونه‌کار", hash: "gallery" },
+  { label: "سوالات", hash: "faq" },
+  { label: "تماس", hash: "contact" },
 ] as const;
 
 export function Header() {
@@ -32,7 +32,7 @@ export function Header() {
             {nav.map((item) => (
               <Link
                 key={item.label}
-                to={item.to}
+                to="/"
                 hash={item.hash}
                 className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
               >
@@ -69,7 +69,7 @@ export function Header() {
             {nav.map((item) => (
               <li key={item.label}>
                 <Link
-                  to={item.to}
+                  to="/"
                   hash={item.hash}
                   onClick={() => setOpen(false)}
                   className="block rounded-xl px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
