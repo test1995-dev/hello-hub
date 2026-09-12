@@ -41,11 +41,15 @@ function ReservePage() {
   const selectedService = services.find((s) => s.id === service)!;
   const selectedDay = weekDays.find((d) => d.id === day)!;
 
+  function toEnDigits(v: string) {
+    return v.replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)));
+  }
+
   function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!slot) return setError("لطفاً یک ساعت را انتخاب کنید.");
     if (name.trim().length < 3) return setError("نام و نام خانوادگی را کامل وارد کنید.");
-    if (!/^09\d{9}$/.test(phone.trim())) return setError("شماره موبایل باید ۱۱ رقم و با ۰۹ شروع شود.");
+    if (!/^09\d{9}$/.test(toEnDigits(phone.trim()))) return setError("شماره موبایل باید ۱۱ رقم و با ۰۹ شروع شود.");
     setError("");
     setDone(true);
   }

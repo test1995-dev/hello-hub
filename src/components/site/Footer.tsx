@@ -45,7 +45,7 @@ export function Footer() {
                     className="flex items-center justify-between rounded-xl border border-border/70 px-3 py-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
                   >
                     <span>{s.label}</span>
-                    <span className="text-xs">{s.handle}</span>
+                    <span className="text-xs" dir="ltr">{s.handle}</span>
                   </a>
                 </li>
               ))}
